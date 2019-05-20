@@ -32,6 +32,7 @@
             this.lblContrasena = new System.Windows.Forms.Label();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtContrasena = new System.Windows.Forms.TextBox();
+            this.btnIngresar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblUsuario
@@ -70,11 +71,22 @@
             this.txtContrasena.TabIndex = 3;
             this.txtContrasena.UseSystemPasswordChar = true;
             // 
+            // btnIngresar
+            // 
+            this.btnIngresar.Location = new System.Drawing.Point(161, 151);
+            this.btnIngresar.Name = "btnIngresar";
+            this.btnIngresar.Size = new System.Drawing.Size(75, 23);
+            this.btnIngresar.TabIndex = 4;
+            this.btnIngresar.Text = "Ingresar";
+            this.btnIngresar.UseVisualStyleBackColor = true;
+            this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(415, 196);
+            this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.txtContrasena);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.lblContrasena);
@@ -93,6 +105,7 @@
         private System.Windows.Forms.Label lblContrasena;
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.TextBox txtContrasena;
+        private System.Windows.Forms.Button btnIngresar;
     }
 }
 
