@@ -57,7 +57,11 @@ namespace Mejora_tu_salud
 
                     if (bandera)
                     {
-                        MessageBox.Show("Se ha iniciado");
+                        Citas citas = new Citas(this, table.Rows[0]["Nombres"].ToString(), table);
+                        citas.Show();
+                        this.Visible = false;
+                        txtUsuario.Text = "";
+                        txtContrasena.Text = "";
                     }
                 }
             }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.OleDb;
+using System.Windows.Forms;
 
 namespace Mejora_tu_salud
 {
@@ -24,10 +25,65 @@ namespace Mejora_tu_salud
         public DataTable ingresarAlSistema(string usuario, string contraseña)
         {
             table.Clear();
-            SQL = "select usuario, contrasena from tbEmpleados where Usuario = '" + usuario + "' AND Contrasena = '" + contraseña + "'";
+            SQL = "select * from tbEmpleados where Usuario = '" + usuario + "' AND Contrasena = '" + contraseña + "'";
             adapter = new OleDbDataAdapter(SQL, conexion);
             adapter.Fill(table);
             return table;
+        }
+
+        public DataTable listarPacientes()
+        {
+            DataTable pacientes = new DataTable();
+            SQL = "select * from tbPacientes";
+            adapter = new OleDbDataAdapter(SQL, conexion);
+            adapter.Fill(pacientes);
+            return pacientes;         
+        }
+
+        public DataTable listarDoctores()
+        {
+            DataTable medicos = new DataTable();
+            SQL = "select * from tbMedicos";
+            adapter = new OleDbDataAdapter(SQL, conexion);
+            adapter.Fill(medicos);
+            return medicos;
+        }
+
+        public DataTable buscarEspecialidad(string especialidad)
+        {
+            DataTable especialidades = new DataTable();
+            SQL = "select Nombre from tbEspecialidades where IdEspecialidad = '" + especialidad + "'";
+            adapter = new OleDbDataAdapter(SQL, conexion);
+            adapter.Fill(especialidades);
+            return especialidades;
+        }
+
+        public DataTable buscarPaciente(string paciente)
+        {
+            DataTable pacientes = new DataTable();
+            SQL = "select * from tbPacientes where Id_paciente = '" + paciente + "'";
+            adapter = new OleDbDataAdapter(SQL, conexion);
+            adapter.Fill(pacientes);
+            return pacientes;
+        }
+
+        public DataTable buscarMedico(string medico)
+        {
+            DataTable medicos = new DataTable();
+            SQL = "select * from tbMedicos where Id_medico = '" + medico + "'";
+            adapter = new OleDbDataAdapter(SQL, conexion);
+            adapter.Fill(medicos);
+            return medicos;
+        }
+
+        public void registrarPaciente(string id, string nombre, string apellidos, string fNacimiento, string direccion, string telefono, string fregistro, string empleado)
+        {
+            DataTable table = new DataTable();
+            SQL = "insert into tbPacientes (Id_paciente, Nombres, Apellidos, Fecha_de_nacimiento, Direccion, Teléfono, Fecha_de_registro, Empleado_que_registra) values ('" + id + "', '" + nombre + "', '" + apellidos + "', '" + fNacimiento + "', '" + direccion + "', '" + telefono + "', '" + fregistro + "', '" + empleado + "')";
+            adapter = new OleDbDataAdapter(SQL, conexion);
+            adapter.Fill(table);
+
+            MessageBox.Show("Se ha registrado exitosamente el nuevo paciente.", "Registro exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

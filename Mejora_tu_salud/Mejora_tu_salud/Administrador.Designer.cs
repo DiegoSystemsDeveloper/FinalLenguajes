@@ -170,6 +170,7 @@
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblId);
             this.Name = "Administrador";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administrador";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Administrador_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
