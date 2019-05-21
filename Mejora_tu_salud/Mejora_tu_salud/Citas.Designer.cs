@@ -30,13 +30,13 @@
         {
             this.lblNombreEmpleado = new System.Windows.Forms.Label();
             this.gboxPaciente = new System.Windows.Forms.GroupBox();
-            this.gboxMedicos = new System.Windows.Forms.GroupBox();
-            this.btnRegistroPaciente = new System.Windows.Forms.Button();
-            this.btnActualizarPaciente = new System.Windows.Forms.Button();
             this.btnVerCitas = new System.Windows.Forms.Button();
-            this.btnRegistrarMedico = new System.Windows.Forms.Button();
-            this.btnActualizarMedico = new System.Windows.Forms.Button();
+            this.btnActualizarPaciente = new System.Windows.Forms.Button();
+            this.btnRegistroPaciente = new System.Windows.Forms.Button();
+            this.gboxMedicos = new System.Windows.Forms.GroupBox();
             this.btnValorApagar = new System.Windows.Forms.Button();
+            this.btnActualizarMedico = new System.Windows.Forms.Button();
+            this.btnRegistrarMedico = new System.Windows.Forms.Button();
             this.lblRegistrarCita = new System.Windows.Forms.Label();
             this.cmbPaciente = new System.Windows.Forms.ComboBox();
             this.cmbMedico = new System.Windows.Forms.ComboBox();
@@ -77,6 +77,37 @@
             this.gboxPaciente.TabStop = false;
             this.gboxPaciente.Text = "Acciones Paciente";
             // 
+            // btnVerCitas
+            // 
+            this.btnVerCitas.Location = new System.Drawing.Point(78, 95);
+            this.btnVerCitas.Name = "btnVerCitas";
+            this.btnVerCitas.Size = new System.Drawing.Size(121, 42);
+            this.btnVerCitas.TabIndex = 2;
+            this.btnVerCitas.Text = "Citas";
+            this.btnVerCitas.UseVisualStyleBackColor = true;
+            // 
+            // btnActualizarPaciente
+            // 
+            this.btnActualizarPaciente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActualizarPaciente.Location = new System.Drawing.Point(152, 22);
+            this.btnActualizarPaciente.Name = "btnActualizarPaciente";
+            this.btnActualizarPaciente.Size = new System.Drawing.Size(113, 41);
+            this.btnActualizarPaciente.TabIndex = 1;
+            this.btnActualizarPaciente.Text = "Actualizar";
+            this.btnActualizarPaciente.UseVisualStyleBackColor = true;
+            this.btnActualizarPaciente.Click += new System.EventHandler(this.btnActualizarPaciente_Click);
+            // 
+            // btnRegistroPaciente
+            // 
+            this.btnRegistroPaciente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistroPaciente.Location = new System.Drawing.Point(7, 22);
+            this.btnRegistroPaciente.Name = "btnRegistroPaciente";
+            this.btnRegistroPaciente.Size = new System.Drawing.Size(113, 41);
+            this.btnRegistroPaciente.TabIndex = 0;
+            this.btnRegistroPaciente.Text = "Registrar";
+            this.btnRegistroPaciente.UseVisualStyleBackColor = true;
+            this.btnRegistroPaciente.Click += new System.EventHandler(this.btnRegistroPaciente_Click);
+            // 
             // gboxMedicos
             // 
             this.gboxMedicos.Controls.Add(this.btnValorApagar);
@@ -90,54 +121,6 @@
             this.gboxMedicos.TabStop = false;
             this.gboxMedicos.Text = "Acciones Medicos";
             // 
-            // btnRegistroPaciente
-            // 
-            this.btnRegistroPaciente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistroPaciente.Location = new System.Drawing.Point(7, 22);
-            this.btnRegistroPaciente.Name = "btnRegistroPaciente";
-            this.btnRegistroPaciente.Size = new System.Drawing.Size(113, 41);
-            this.btnRegistroPaciente.TabIndex = 0;
-            this.btnRegistroPaciente.Text = "Registrar";
-            this.btnRegistroPaciente.UseVisualStyleBackColor = true;
-            this.btnRegistroPaciente.Click += new System.EventHandler(this.btnRegistroPaciente_Click);
-            // 
-            // btnActualizarPaciente
-            // 
-            this.btnActualizarPaciente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActualizarPaciente.Location = new System.Drawing.Point(152, 22);
-            this.btnActualizarPaciente.Name = "btnActualizarPaciente";
-            this.btnActualizarPaciente.Size = new System.Drawing.Size(113, 41);
-            this.btnActualizarPaciente.TabIndex = 1;
-            this.btnActualizarPaciente.Text = "Actualizar";
-            this.btnActualizarPaciente.UseVisualStyleBackColor = true;
-            // 
-            // btnVerCitas
-            // 
-            this.btnVerCitas.Location = new System.Drawing.Point(78, 95);
-            this.btnVerCitas.Name = "btnVerCitas";
-            this.btnVerCitas.Size = new System.Drawing.Size(121, 42);
-            this.btnVerCitas.TabIndex = 2;
-            this.btnVerCitas.Text = "Citas";
-            this.btnVerCitas.UseVisualStyleBackColor = true;
-            // 
-            // btnRegistrarMedico
-            // 
-            this.btnRegistrarMedico.Location = new System.Drawing.Point(6, 21);
-            this.btnRegistrarMedico.Name = "btnRegistrarMedico";
-            this.btnRegistrarMedico.Size = new System.Drawing.Size(113, 41);
-            this.btnRegistrarMedico.TabIndex = 0;
-            this.btnRegistrarMedico.Text = "Registrar";
-            this.btnRegistrarMedico.UseVisualStyleBackColor = true;
-            // 
-            // btnActualizarMedico
-            // 
-            this.btnActualizarMedico.Location = new System.Drawing.Point(155, 21);
-            this.btnActualizarMedico.Name = "btnActualizarMedico";
-            this.btnActualizarMedico.Size = new System.Drawing.Size(113, 41);
-            this.btnActualizarMedico.TabIndex = 1;
-            this.btnActualizarMedico.Text = "Actualizar";
-            this.btnActualizarMedico.UseVisualStyleBackColor = true;
-            // 
             // btnValorApagar
             // 
             this.btnValorApagar.Location = new System.Drawing.Point(77, 95);
@@ -147,6 +130,26 @@
             this.btnValorApagar.Text = "Ver salario";
             this.btnValorApagar.UseVisualStyleBackColor = true;
             this.btnValorApagar.Click += new System.EventHandler(this.btnValorApagar_Click);
+            // 
+            // btnActualizarMedico
+            // 
+            this.btnActualizarMedico.Location = new System.Drawing.Point(155, 21);
+            this.btnActualizarMedico.Name = "btnActualizarMedico";
+            this.btnActualizarMedico.Size = new System.Drawing.Size(113, 41);
+            this.btnActualizarMedico.TabIndex = 1;
+            this.btnActualizarMedico.Text = "Actualizar";
+            this.btnActualizarMedico.UseVisualStyleBackColor = true;
+            this.btnActualizarMedico.Click += new System.EventHandler(this.btnActualizarMedico_Click);
+            // 
+            // btnRegistrarMedico
+            // 
+            this.btnRegistrarMedico.Location = new System.Drawing.Point(6, 21);
+            this.btnRegistrarMedico.Name = "btnRegistrarMedico";
+            this.btnRegistrarMedico.Size = new System.Drawing.Size(113, 41);
+            this.btnRegistrarMedico.TabIndex = 0;
+            this.btnRegistrarMedico.Text = "Registrar";
+            this.btnRegistrarMedico.UseVisualStyleBackColor = true;
+            this.btnRegistrarMedico.Click += new System.EventHandler(this.btnRegistrarMedico_Click);
             // 
             // lblRegistrarCita
             // 

@@ -41,6 +41,8 @@
             this.lblAdmin = new System.Windows.Forms.Label();
             this.dgv = new System.Windows.Forms.DataGridView();
             this.btnAgregar = new System.Windows.Forms.Button();
+            this.lblConfirmarContrasena = new System.Windows.Forms.Label();
+            this.txtConfirmarContrasena = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,6 +97,7 @@
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(114, 20);
             this.txtId.TabIndex = 5;
+            this.txtId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtId_KeyPress);
             // 
             // txtNombre
             // 
@@ -102,6 +105,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(114, 20);
             this.txtNombre.TabIndex = 6;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // txtApellidos
             // 
@@ -109,6 +113,7 @@
             this.txtApellidos.Name = "txtApellidos";
             this.txtApellidos.Size = new System.Drawing.Size(114, 20);
             this.txtApellidos.TabIndex = 7;
+            this.txtApellidos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellidos_KeyPress);
             // 
             // txtUsuario
             // 
@@ -123,12 +128,13 @@
             this.txtContrasena.Name = "txtContrasena";
             this.txtContrasena.Size = new System.Drawing.Size(114, 20);
             this.txtContrasena.TabIndex = 9;
+            this.txtContrasena.UseSystemPasswordChar = true;
             // 
             // lblAdmin
             // 
             this.lblAdmin.AutoSize = true;
             this.lblAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdmin.Location = new System.Drawing.Point(181, 20);
+            this.lblAdmin.Location = new System.Drawing.Point(194, 20);
             this.lblAdmin.Name = "lblAdmin";
             this.lblAdmin.Size = new System.Drawing.Size(260, 42);
             this.lblAdmin.TabIndex = 10;
@@ -139,23 +145,43 @@
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv.Location = new System.Drawing.Point(317, 85);
             this.dgv.Name = "dgv";
-            this.dgv.Size = new System.Drawing.Size(297, 200);
+            this.dgv.Size = new System.Drawing.Size(297, 245);
             this.dgv.TabIndex = 11;
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(96, 316);
+            this.btnAgregar.Location = new System.Drawing.Point(97, 359);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(93, 33);
+            this.btnAgregar.Size = new System.Drawing.Size(120, 33);
             this.btnAgregar.TabIndex = 12;
-            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.Text = "Agregar Empleado";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // lblConfirmarContrasena
+            // 
+            this.lblConfirmarContrasena.AutoSize = true;
+            this.lblConfirmarContrasena.Location = new System.Drawing.Point(47, 317);
+            this.lblConfirmarContrasena.Name = "lblConfirmarContrasena";
+            this.lblConfirmarContrasena.Size = new System.Drawing.Size(113, 13);
+            this.lblConfirmarContrasena.TabIndex = 13;
+            this.lblConfirmarContrasena.Text = "Confirmar contraseña: ";
+            // 
+            // txtConfirmarContrasena
+            // 
+            this.txtConfirmarContrasena.Location = new System.Drawing.Point(179, 314);
+            this.txtConfirmarContrasena.Name = "txtConfirmarContrasena";
+            this.txtConfirmarContrasena.Size = new System.Drawing.Size(114, 20);
+            this.txtConfirmarContrasena.TabIndex = 14;
+            this.txtConfirmarContrasena.UseSystemPasswordChar = true;
             // 
             // Administrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(657, 361);
+            this.ClientSize = new System.Drawing.Size(657, 415);
+            this.Controls.Add(this.txtConfirmarContrasena);
+            this.Controls.Add(this.lblConfirmarContrasena);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.dgv);
             this.Controls.Add(this.lblAdmin);
@@ -194,5 +220,7 @@
         private System.Windows.Forms.Label lblAdmin;
         private System.Windows.Forms.DataGridView dgv;
         private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Label lblConfirmarContrasena;
+        private System.Windows.Forms.TextBox txtConfirmarContrasena;
     }
 }

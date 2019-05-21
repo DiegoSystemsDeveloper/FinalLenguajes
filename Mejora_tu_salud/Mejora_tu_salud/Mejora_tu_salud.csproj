@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActualizarMedico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActualizarMedico.Designer.cs">
+      <DependentUpon>ActualizarMedico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActualizarPaciente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActualizarPaciente.Designer.cs">
+      <DependentUpon>ActualizarPaciente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administrador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,12 +79,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistrarMedico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistrarMedico.Designer.cs">
+      <DependentUpon>RegistrarMedico.cs</DependentUpon>
+    </Compile>
     <Compile Include="RegistrarPaciente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="RegistrarPaciente.Designer.cs">
       <DependentUpon>RegistrarPaciente.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ActualizarMedico.resx">
+      <DependentUpon>ActualizarMedico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActualizarPaciente.resx">
+      <DependentUpon>ActualizarPaciente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administrador.resx">
       <DependentUpon>Administrador.cs</DependentUpon>
     </EmbeddedResource>
@@ -91,6 +115,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RegistrarMedico.resx">
+      <DependentUpon>RegistrarMedico.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RegistrarPaciente.resx">
       <DependentUpon>RegistrarPaciente.cs</DependentUpon>
     </EmbeddedResource>

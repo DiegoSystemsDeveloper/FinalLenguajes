@@ -87,5 +87,27 @@ namespace Mejora_tu_salud
             registrarPaciente.Visible = true;
             this.Visible = false;
         }
+
+        private void btnRegistrarMedico_Click(object sender, EventArgs e)
+        {
+            RegistrarMedico registrarMedico = new RegistrarMedico(this);
+            registrarMedico.Show();
+            this.Visible = false;
+        }
+
+        private void btnActualizarMedico_Click(object sender, EventArgs e)
+        {
+            ActualizarMedico actualizarMedico = new ActualizarMedico(bd.buscarMedico(cmbMedico.Text).Rows[0]["Nombres"].ToString(), bd.buscarMedico(cmbMedico.Text).Rows[0]["Id_medico"].ToString(), bd.buscarMedico(cmbMedico.Text).Rows[0]["Salario_por_cita"].ToString(), this);
+            actualizarMedico.Show();
+            this.Visible = false; 
+        }
+
+        private void btnActualizarPaciente_Click(object sender, EventArgs e)
+        {
+            ActualizarPaciente actualizarPaciente = new ActualizarPaciente(bd.buscarPaciente(cmbPaciente.Text).Rows[0]["Id_paciente"].ToString(), bd.buscarPaciente(cmbPaciente.Text).Rows[0]["Nombres"].ToString(), bd.buscarPaciente(cmbPaciente.Text).Rows[0]["Direccion"].ToString(), bd.buscarPaciente(cmbPaciente.Text).Rows[0]["Teléfono"].ToString(), this);
+            actualizarPaciente.Show();
+            this.Visible = false;
+
+        }
     }
 }
