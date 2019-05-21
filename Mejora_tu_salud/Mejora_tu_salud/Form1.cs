@@ -32,22 +32,33 @@ namespace Mejora_tu_salud
             }
             else
             {
-                table = bd.ingresarAlSistema(txtUsuario.Text, txtContrasena.Text);
-                Boolean bandera = true;
-                try
+                if (bd.Usuario1.Equals(txtUsuario.Text) && bd.Contrasena1.Equals(txtContrasena.Text))
                 {
-                    String usuario = table.Rows[0]["Usuario"].ToString();
-                    String contraseña = table.Rows[0]["Contrasena"].ToString();
+                    Administrador admin = new Administrador(this);
+                    admin.Show();
+                    this.Visible = false;
+                    txtUsuario.Text = "";
+                    txtContrasena.Text = "";
                 }
-                catch (Exception exc)
+                else
                 {
-                    MessageBox.Show("Usuario o contraseña incorrecto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    bandera = false;
-                }
+                    table = bd.ingresarAlSistema(txtUsuario.Text, txtContrasena.Text);
+                    Boolean bandera = true;
+                    try
+                    {
+                        String usuario = table.Rows[0]["Usuario"].ToString();
+                        String contraseña = table.Rows[0]["Contrasena"].ToString();
+                    }
+                    catch (Exception exc)
+                    {
+                        MessageBox.Show("Usuario o contraseña incorrecto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        bandera = false;
+                    }
 
-                if(bandera)
-                {
-                    MessageBox.Show("Se ha iniciado");
+                    if (bandera)
+                    {
+                        MessageBox.Show("Se ha iniciado");
+                    }
                 }
             }
         }
