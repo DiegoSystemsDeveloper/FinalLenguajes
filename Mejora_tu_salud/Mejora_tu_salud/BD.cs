@@ -69,7 +69,7 @@ namespace Mejora_tu_salud
         public DataTable buscarEspecialidad(string especialidad)
         {
             DataTable especialidades = new DataTable();
-            SQL = "select Nombre from tbEspecialidades where IdEspecialidad = '" + especialidad + "'";
+            SQL = "select * from tbEspecialidades where IdEspecialidad = '" + especialidad + "'";
             adapter = new OleDbDataAdapter(SQL, conexion);
             adapter.Fill(especialidades);
             return especialidades;
@@ -91,6 +91,15 @@ namespace Mejora_tu_salud
             adapter = new OleDbDataAdapter(SQL, conexion);
             adapter.Fill(medicos);
             return medicos;
+        }
+
+        public DataTable buscarCitasPaciente(string paciente)
+        {
+            DataTable pacientes = new DataTable();
+            SQL = "select * from tbCitas where Id_paciente = '" + paciente + "'";
+            adapter = new OleDbDataAdapter(SQL, conexion);
+            adapter.Fill(pacientes);
+            return pacientes;
         }
 
         public void registrarPaciente(string id, string nombre, string apellidos, string fNacimiento, string direccion, string telefono, string fregistro, string empleado)
@@ -121,6 +130,16 @@ namespace Mejora_tu_salud
             adapter.Fill(empleados);
 
             MessageBox.Show("Se ha registrado exitosamente el nuevo empleado.", "Registro exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        public void registrarCita(string idPaciente, string idMedico, string fecha, string hora)
+        {
+            DataTable citas = new DataTable();
+            SQL = "insert into tbCitas (Id_paciente, Id_medico, fecha_programada, hora_programada) values ('" + idPaciente + "', '" + idMedico + "', '" + fecha + "', '" + hora + "')";
+            adapter = new OleDbDataAdapter(SQL, conexion);
+            adapter.Fill(citas);
+
+            MessageBox.Show("Se ha registrado correctamente la cita", "Registro exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public void actualizarMedico(string nombre, string salario, string idMedico)

@@ -12,6 +12,8 @@ namespace Mejora_tu_salud
 {
     public partial class Citas : Form
     {
+        const int LIMITE_DE_CITAS = 2;
+
         BD bd = new BD();
         Form cerrado;
         DataTable pacientes = new DataTable();
@@ -107,7 +109,85 @@ namespace Mejora_tu_salud
             ActualizarPaciente actualizarPaciente = new ActualizarPaciente(bd.buscarPaciente(cmbPaciente.Text).Rows[0]["Id_paciente"].ToString(), bd.buscarPaciente(cmbPaciente.Text).Rows[0]["Nombres"].ToString(), bd.buscarPaciente(cmbPaciente.Text).Rows[0]["Direccion"].ToString(), bd.buscarPaciente(cmbPaciente.Text).Rows[0]["Teléfono"].ToString(), this);
             actualizarPaciente.Show();
             this.Visible = false;
+        }
 
+        private void btnVerCitas_Click(object sender, EventArgs e)
+        {
+            VerCita verCita = new VerCita(bd.buscarPaciente(cmbPaciente.Text).Rows[0]["Id_paciente"].ToString(), bd.buscarPaciente(cmbPaciente.Text).Rows[0]["Nombres"].ToString(), this);
+            verCita.Show();
+            this.Visible = false;
+        }
+
+        private void btnSolicitarCita_Click(object sender, EventArgs e)
+        {
+            int citasDelCliente = bd.buscarCitasPaciente(cmbPaciente.Text).Rows.Count;
+
+            if(citasDelCliente < LIMITE_DE_CITAS)
+            {
+                Boolean existeRegistro = true;
+                string idMedicoRegistrado = null;
+
+                try
+                {
+                    idMedicoRegistrado = bd.buscarCitasPaciente(cmbPaciente.Text).Rows[0]["Id_medico"].ToString(); 
+                }
+                catch(Exception exc)
+                {
+                    existeRegistro = false;
+                }
+
+                if(existeRegistro)
+                {
+                    string idEspecialidadRegistrada = bd.buscarEspecialidad(bd.buscarMedico(idMedicoRegistrado).Rows[0]["IdEspecialidad"].ToString()).Rows[0]["IdEspecialidad"].ToString();
+                    string idEspecialidadNOregistrada = bd.buscarEspecialidad(bd.buscarMedico(cmbMedico.Text).Rows[0]["IdEspecialidad"].ToString()).Rows[0]["IdEspecialidad"].ToString();
+
+                    if (idEspecialidadRegistrada.Equals(idEspecialidadNOregistrada))
+                    {
+                        MessageBox.Show("Ya existe una cita que tiene el mismo tipo de especialidad", "Citas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        registrarCita();
+                    }
+                }
+                else
+                {   
+                    registrarCita();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Solo se permiten " + LIMITE_DE_CITAS + " citas por especialidad.");
+            }
+        }
+
+        public void registrarCita()
+        {
+            string nombreMedico = txtNombreMedico.Text;
+            string nombrePaciente = txtNombrePaciente.Text;
+            string apellidosPaciente = txtApellidosPaciente.Text;
+            string especialidadMedico = txtEspecialidad.Text;
+            string fecha = dtpFecha.Text;
+            string hora = dtpHora.Text;
+
+            DialogResult res = MessageBox.Show("Datos de la cita: " + "\n\n" +
+                                               "Nombre del paciente: " + nombrePaciente + "\n" +
+                                               "Apellidos del paciente: " + apellidosPaciente + "\n" +
+                                               "Medico que atenderá: " + nombreMedico + "\n" +
+                                               "Especialidad del medico : " + especialidadMedico + "\n\n" +
+                                               "Fecha: " + fecha + "\n" +
+                                               "Hora: " + hora + "\n\n" +
+                                               "¿Está seguro de registrar esta cita?",
+            "Registro de citas", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (res == DialogResult.Yes)
+            {
+                bd.registrarCita(cmbPaciente.Text, cmbMedico.Text, dtpFecha.Text, dtpHora.Text);
+            }
+            else
+            {
+                MessageBox.Show("La cita ha sido cancelada", "Cita cancelada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

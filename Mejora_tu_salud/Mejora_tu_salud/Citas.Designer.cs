@@ -85,6 +85,7 @@
             this.btnVerCitas.TabIndex = 2;
             this.btnVerCitas.Text = "Citas";
             this.btnVerCitas.UseVisualStyleBackColor = true;
+            this.btnVerCitas.Click += new System.EventHandler(this.btnVerCitas_Click);
             // 
             // btnActualizarPaciente
             // 
@@ -177,7 +178,7 @@
             this.cmbMedico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMedico.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbMedico.FormattingEnabled = true;
-            this.cmbMedico.Location = new System.Drawing.Point(191, 110);
+            this.cmbMedico.Location = new System.Drawing.Point(200, 110);
             this.cmbMedico.Name = "cmbMedico";
             this.cmbMedico.Size = new System.Drawing.Size(113, 26);
             this.cmbMedico.TabIndex = 5;
@@ -187,7 +188,7 @@
             // 
             this.dtpFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFecha.Location = new System.Drawing.Point(357, 112);
+            this.dtpFecha.Location = new System.Drawing.Point(355, 108);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(113, 24);
             this.dtpFecha.TabIndex = 6;
@@ -196,7 +197,7 @@
             // 
             this.dtpHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpHora.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHora.Location = new System.Drawing.Point(491, 112);
+            this.dtpHora.Location = new System.Drawing.Point(499, 108);
             this.dtpHora.Name = "dtpHora";
             this.dtpHora.Size = new System.Drawing.Size(113, 24);
             this.dtpHora.TabIndex = 7;
@@ -286,12 +287,13 @@
             this.btnSolicitarCita.TabIndex = 16;
             this.btnSolicitarCita.Text = "Solicitar cita";
             this.btnSolicitarCita.UseVisualStyleBackColor = true;
+            this.btnSolicitarCita.Click += new System.EventHandler(this.btnSolicitarCita_Click);
             // 
             // Citas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(21F, 39F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(635, 435);
+            this.ClientSize = new System.Drawing.Size(649, 435);
             this.Controls.Add(this.btnSolicitarCita);
             this.Controls.Add(this.lblEspecialidad);
             this.Controls.Add(this.lblNombreMedico);
